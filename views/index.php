@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.: Customer :.</title>
     <script>
-        
-        </script>
+        function eliminar(id){
+            document.location = ` ../views/delete.php?id=${id}` ;
+        }
+
+    </script>
 </head>
 <body>
     <h1>Customers</h1>
@@ -28,7 +31,7 @@
             <td><?= $customer['contactName']?></td>
             <td>
                 <a href="../views/edit.php?id=<?= $customer['custId']?>">Editar</a>
-                <a href="javascript:confirm('¿Deseas eliminar?')">Eliminar</a>
+                <a href="javascript:confirm('¿Deseas eliminar?') ? javascript:eliminar(<?=$customer['custId'] ?>)">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
