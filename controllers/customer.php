@@ -19,6 +19,16 @@ class CustomerController {
         $this->userModel->store($data);
         header("Location: ../public/index.php");
     }
+
+    public function update($data){
+        $this->userModel->update($data);
+        header("Location: ../public/index.php");
+    }
+
+    public function delete($id){
+        $this->userModel->delete($id);
+        header("Location: ../public/index.php");
+    }
 }
 
 ?>

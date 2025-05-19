@@ -8,8 +8,10 @@
     <script src="../boostrap/js/bootstrap.min.js"></script>    
 </head>
 <body>
-    <form action="store.php" method="post">
+    <form action="update.php" method="post">
         <h1>New Customer</h1>
+
+        <input type="text" value=<?php echo $_GET['id'];?> name="custId" hidden>
 
         <!-- Flexbox -->
         <div class="d-flex">
@@ -55,10 +57,8 @@
                 <input type="text" class="form-control"name="phone">
             </div>
         </div>
-        
-        <input type="submit" class="btn btn-primary">
 
-    </form>
+        <input type="submit" class="btn btn-primary">
 
     
 </body>

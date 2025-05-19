@@ -16,6 +16,7 @@
 
         $customers = $customerController->index();
 
+
         //var_dump($customers);
         //phpinfo();
     ?>

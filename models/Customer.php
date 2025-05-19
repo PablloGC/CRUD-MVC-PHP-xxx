@@ -11,7 +11,7 @@ class CustomerModel {
     }
 
     public function index(){
-        $query = "SELECT * FROM Customer";
+        $query = "SELECT * FROM Customer ORDER BY custId DESC";
         $stmt = $this->conexion->query($query);
 
         $stmt->execute();
@@ -31,11 +31,36 @@ class CustomerModel {
         $stmt->execute(
             array(
                 $data['companyName'], $data['contactName'], $data['contactTitle'], $data['address'],
-                $data['city'], $data['postalCode'], $data['country'], $data['phone'], 
+                $data['city'], $data['postalCode'], $data['country'], $data['phone']
 
             )
         );
     }
+
+    public function update($data){
+        $query = "UPDATE Customer SET companyName=?, contactName=?, contactTitle=?, address=?,
+        city=?, postalCode=?, country=?, phone=? WHERE custId=?";
+
+        $stmt = $this->conexion->prepare($query);
+
+         $stmt->execute(
+            array(
+                $data['companyName'], $data['contactName'], $data['contactTitle'],
+                $data['address'], $data['city'], $data['postalCode'],
+                $data['country'], $data['phone'], $data['custId']
+            )
+            );
+    }
+
+    public function delete($id) {
+        $query = "DELETE FROM Customer WHERE Id = $id";
+
+        $stmt = $this->conexion->query($query);
+        $stmt->execute();
+    }
+
+
+
 }
 
 

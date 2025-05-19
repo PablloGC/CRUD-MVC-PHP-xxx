@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.: Customer :.</title>
+    <script>
+        
+        </script>
 </head>
 <body>
     <h1>Customers</h1>
@@ -24,8 +27,8 @@
             <td><?= $customer['companyName']?></td>
             <td><?= $customer['contactName']?></td>
             <td>
-                <a href="">Editar</a>
-                <a href="">Eliminar</a>
+                <a href="../views/edit.php?id=<?= $customer['custId']?>">Editar</a>
+                <a href="javascript:confirm('¿Deseas eliminar?')">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
